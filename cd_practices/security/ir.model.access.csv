@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_practice_tag,access.cd.practice.tag,model_cd_practice_tag,base.group_user,1,1,1,1
+access_cd_practice_item,access.cd.practice.item,model_cd_practice_item,base.group_user,1,1,1,1
+access_cd_practice_item_line,access.cd.practice.item.line,model_cd_practice_item_line,base.group_user,1,1,1,1
+access_cd_practice_booking,access.cd.practice.booking,model_cd_practice_booking,base.group_user,1,1,1,1
+access_cd_practice_booking_wizard,access.cd.practice.booking.wizard,model_cd_practice_booking_wizard,base.group_user,1,1,1,1

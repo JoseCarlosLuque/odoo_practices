@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_practice_root"
+                  name="Prácticas"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_practice_items"
+                  name="Elementos"
+                  action="action_cd_practice_item"
+                  parent="menu_cd_practice_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_practice_bookings"
+                  name="Reservas"
+                  action="action_cd_practice_booking"
+                  parent="menu_cd_practice_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de etiquetas con id menu_cd_practice_tag,
+             action_cd_practice_tag y parent menu_cd_practice_root,
+             sequence 30 (las vistas y la acción van en
+             cd_practice_tag_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>
