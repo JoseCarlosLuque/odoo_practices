@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             EJERCICIO 25 · Bloque 4 · Test: TestViews.test_ex25_material_views
+             =================================================================
+             Este archivo está vacío a propósito. Crea aquí las vistas y la
+             acción del modelo cd.furniture.material.
+             Los xml id EXACTOS que comprueba el test son:
+                 view_cd_furniture_material_list
+                 view_cd_furniture_material_form
+                 action_cd_furniture_material
+                 menu_cd_furniture_material
+             Requisitos:
+               - vista list con los campos name y color
+               - vista form con los campos name y color
+               - acción act_window res_model='cd.furniture.material' y
+                 view_mode='list,form'
+               - menuitem hijo de menu_cd_furniture_root, sequence 30.
+                 OJO: el menú va en views/menus.xml (se carga después y el
+                 menú raíz ya existe ahí), no en este archivo.
+             PLANTILLA
+               <record id="view_cd_furniture_material_list" model="ir.ui.view">
+                   <field name="name">cd.furniture.material.list</field>
+                   <field name="model">cd.furniture.material</field>
+                   <field name="arch" type="xml">
+                       <list>...</list>
+                   </field>
+               </record>
+               ...
+             ================================================================= -->
+    </data>
+</odoo>

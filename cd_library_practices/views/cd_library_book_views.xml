@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vistas del modelo cd.library.book. Vienen funcionando; el
+             EJERCICIO 28 te pide añadir un botón en el header. -->
+        <record id="view_cd_library_book_list" model="ir.ui.view">
+            <field name="name">cd.library.book.list</field>
+            <field name="model">cd.library.book</field>
+            <field name="arch" type="xml">
+                <list string="Libros">
+                    <field name="name"/>
+                    <field name="author_id"/>
+                    <field name="genre_ids" widget="many2many_tags"/>
+                    <field name="replacement_cost"/>
+                    <field name="quantity"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_cd_library_book_form" model="ir.ui.view">
+            <field name="name">cd.library.book.form</field>
+            <field name="model">cd.library.book</field>
+            <field name="arch" type="xml">
+                <form string="Libro">
+                    <header>
+                        <!-- =================================================
+                             EJERCICIO 28b · Bloque 4
+                             Añade aquí un botón que llame al método
+                             action_mark_available y que solo se vea cuando el
+                             estado sea 'draft'. Ejemplo de sintaxis:
+
+                             <button name="action_mark_available"
+                                     type="object"
+                                     string="Marcar disponible"
+                                     invisible="state != 'draft'"/>
+                             ================================================= -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,available,loaned"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_loan_wizard"
+                                    type="object"
+                                    string="Prestar"
+                                    class="oe_stat_button"
+                                    icon="fa-book"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="author_id"/>
+                                <field name="genre_ids" widget="many2many_tags"/>
+                                <field name="publication_date"/>
+                            </group>
+                            <group>
+                                <field name="replacement_cost"/>
+                                <field name="quantity"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sinopsis" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Ejemplares" name="copies">
+                                <field name="copy_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="condition"/>
+                                        <field name="acquisition_price"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Préstamos" name="loans">
+                                <field name="loan_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="loan_date"/>
+                                        <field name="due_date"/>
+                                        <field name="state"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cd_library_book_search" model="ir.ui.view">
+            <field name="name">cd.library.book.search</field>
+            <field name="model">cd.library.book</field>
+            <field name="arch" type="xml">
+                <search string="Buscar libros">
+                    <field name="name"/>
+                    <field name="author_id"/>
+                    <field name="genre_ids"/>
+                    <filter name="filter_draft" string="Borradores" domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_available" string="Disponibles" domain="[('state', '=', 'available')]"/>
+                    <group>
+                        <filter name="group_state" string="Estado" context="{'group_by': 'state'}"/>
+                        <filter name="group_author" string="Autor" context="{'group_by': 'author_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cd_library_book" model="ir.actions.act_window">
+            <field name="name">Libros</field>
+            <field name="res_model">cd.library.book</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_cd_library_book_search"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             BLOQUE 5 · SEGURIDAD (ejercicios 30 y 31)
+             =================================================================
+             EJERCICIO 30 · Test: TestSecurity.test_ex30_group_and_acl
+               a) Crea aquí el grupo con xml id EXACTO
+                  group_cd_furniture_manager:
+
+                  <record id="group_cd_furniture_manager" model="res.groups">
+                      <field name="name">Fábrica de muebles / Manager</field>
+                  </record>
+
+               b) En security/ir.model.access.csv modifica la fila
+                  access_cd_furniture_product para que base.group_user solo
+                  tenga lectura (1,0,0,0) y añade una fila nueva
+                  access_cd_furniture_product_manager con todos los permisos
+                  para group_cd_furniture_manager.
+
+             EJERCICIO 31 · Test: TestSecurity.test_ex31_record_rule
+               Crea aquí una record rule con xml id EXACTO
+               rule_cd_furniture_product_own_records sobre
+               cd.furniture.product, aplicada a base.group_user, cuyo dominio
+               permita ver solo los registros del propio usuario:
+
+                  <record id="rule_cd_furniture_product_own_records" model="ir.rule">
+                      <field name="name">Fábrica: solo mis muebles</field>
+                      <field name="model_id" ref="model_cd_furniture_product"/>
+                      <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+                      <field name="domain_force">
+                          ['|', ('designer_id', '=', user.partner_id.id), ('create_uid', '=', user.id)]
+                      </field>
+                  </record>
+             ================================================================= -->
+    </data>
+</odoo>

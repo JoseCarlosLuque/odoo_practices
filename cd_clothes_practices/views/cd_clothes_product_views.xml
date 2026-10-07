@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vistas del modelo cd.clothes.product. Vienen funcionando; el
+             EJERCICIO 28 te pide añadir un botón en el header. -->
+        <record id="view_cd_clothes_product_list" model="ir.ui.view">
+            <field name="name">cd.clothes.product.list</field>
+            <field name="model">cd.clothes.product</field>
+            <field name="arch" type="xml">
+                <list string="Prendas">
+                    <field name="name"/>
+                    <field name="supplier_id"/>
+                    <field name="category_ids" widget="many2many_tags"/>
+                    <field name="price"/>
+                    <field name="quantity"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_cd_clothes_product_form" model="ir.ui.view">
+            <field name="name">cd.clothes.product.form</field>
+            <field name="model">cd.clothes.product</field>
+            <field name="arch" type="xml">
+                <form string="Prenda">
+                    <header>
+                        <!-- =================================================
+                             EJERCICIO 28b · Bloque 4
+                             Añade aquí un botón que llame al método
+                             action_mark_available y que solo se vea cuando el
+                             estado sea 'draft'. Ejemplo de sintaxis:
+
+                             <button name="action_mark_available"
+                                     type="object"
+                                     string="Marcar disponible"
+                                     invisible="state != 'draft'"/>
+                             ================================================= -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,available,on_sale"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_order_wizard"
+                                    type="object"
+                                    string="Pedir"
+                                    class="oe_stat_button"
+                                    icon="fa-shopping-cart"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="supplier_id"/>
+                                <field name="category_ids" widget="many2many_tags"/>
+                                <field name="launch_date"/>
+                            </group>
+                            <group>
+                                <field name="price"/>
+                                <field name="quantity"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Descripción" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Variantes" name="variants">
+                                <field name="variant_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="stock"/>
+                                        <field name="price_extra"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Pedidos" name="orders">
+                                <field name="order_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="state"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cd_clothes_product_search" model="ir.ui.view">
+            <field name="name">cd.clothes.product.search</field>
+            <field name="model">cd.clothes.product</field>
+            <field name="arch" type="xml">
+                <search string="Buscar prendas">
+                    <field name="name"/>
+                    <field name="supplier_id"/>
+                    <field name="category_ids"/>
+                    <filter name="filter_draft" string="Borradores" domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_available" string="Disponibles" domain="[('state', '=', 'available')]"/>
+                    <group>
+                        <filter name="group_state" string="Estado" context="{'group_by': 'state'}"/>
+                        <filter name="group_supplier" string="Proveedor" context="{'group_by': 'supplier_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cd_clothes_product" model="ir.actions.act_window">
+            <field name="name">Prendas</field>
+            <field name="res_model">cd.clothes.product</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_cd_clothes_product_search"/>
+        </record>
+    </data>
+</odoo>

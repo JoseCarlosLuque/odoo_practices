@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_partner_ana" model="res.partner">
+            <field name="name">Ana Moda</field>
+            <field name="email">ana.moda@example.com</field>
+        </record>
+
+        <record id="demo_partner_bruno" model="res.partner">
+            <field name="name">Bruno Moda</field>
+            <field name="email">bruno.moda@example.com</field>
+        </record>
+
+        <record id="demo_category_camisetas" model="cd.clothes.category">
+            <field name="name">Camisetas</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="demo_category_pantalones" model="cd.clothes.category">
+            <field name="name">Pantalones</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="demo_product_camiseta" model="cd.clothes.product">
+            <field name="name">Camiseta básica</field>
+            <field name="description">Una prenda ideal para practicar dominios y recordsets.</field>
+            <field name="supplier_id" ref="demo_partner_ana"/>
+            <field name="category_ids" eval="[(6, 0, [ref('demo_category_camisetas')])]"/>
+            <field name="price">25.0</field>
+            <field name="quantity">2</field>
+            <field name="state">available</field>
+        </record>
+
+        <record id="demo_product_vaqueros" model="cd.clothes.product">
+            <field name="name">Vaqueros slim</field>
+            <field name="description">Ideales para escribir muchos search().</field>
+            <field name="supplier_id" ref="demo_partner_bruno"/>
+            <field name="category_ids" eval="[(6, 0, [ref('demo_category_pantalones')])]"/>
+            <field name="price">80.0</field>
+            <field name="quantity">1</field>
+            <field name="state">on_sale</field>
+        </record>
+
+        <record id="demo_product_chaqueta" model="cd.clothes.product">
+            <field name="name">Chaqueta de lana</field>
+            <field name="supplier_id" ref="demo_partner_ana"/>
+            <field name="price">150.0</field>
+            <field name="quantity">3</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="demo_variant_camiseta" model="cd.clothes.variant">
+            <field name="name">Talla M / Azul</field>
+            <field name="product_id" ref="demo_product_camiseta"/>
+            <field name="stock">1</field>
+            <field name="price_extra">0.0</field>
+        </record>
+
+        <record id="demo_order_ana" model="cd.clothes.order">
+            <field name="name">Pedido de Ana</field>
+            <field name="product_id" ref="demo_product_camiseta"/>
+            <field name="partner_id" ref="demo_partner_ana"/>
+            <field name="date_start" eval="datetime.today().date()"/>
+            <field name="date_end" eval="datetime.today().date() + timedelta(days=7)"/>
+            <field name="state">ongoing</field>
+        </record>
+
+        <record id="demo_order_bruno" model="cd.clothes.order">
+            <field name="name">Pedido de Bruno</field>
+            <field name="product_id" ref="demo_product_vaqueros"/>
+            <field name="partner_id" ref="demo_partner_bruno"/>
+            <field name="date_start" eval="datetime.today().date() - timedelta(days=10)"/>
+            <field name="date_end" eval="datetime.today().date() - timedelta(days=3)"/>
+            <field name="state">shipped</field>
+        </record>
+    </data>
+</odoo>

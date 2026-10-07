@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             EJERCICIO 27 · Bloque 4 · Test: TestViews.test_ex27_partner_view_inherit
+             =================================================================
+             Hereda la vista form de res.partner (base.view_partner_form) para
+             añadir una pestaña "Fábrica". El xml id EXACTO que comprueba el
+             test es view_res_partner_form_inherit_furniture.
+             Debe añadir dentro del notebook:
+                 <page string="Fábrica">
+                     <field name="designed_product_count"/>
+                     <field name="designed_product_ids">...</field>
+                     <button name="action_view_designed_products" type="object"
+                             string="Ver muebles"/>
+                 </page>
+             PISTA DE SINTAXIS
+               <record id="view_res_partner_form_inherit_furniture" model="ir.ui.view">
+                   <field name="name">res.partner.form.inherit.furniture</field>
+                   <field name="model">res.partner</field>
+                   <field name="inherit_id" ref="base.view_partner_form"/>
+                   <field name="arch" type="xml">
+                       <xpath expr="//notebook" position="inside">
+                           ...
+                       </xpath>
+                   </field>
+               </record>
+             (necesita que el EJERCICIO 26 esté hecho: los campos y el método)
+             ================================================================= -->
+    </data>
+</odoo>

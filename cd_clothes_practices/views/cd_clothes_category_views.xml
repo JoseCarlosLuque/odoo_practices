@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             EJERCICIO 25 · Bloque 4 · Test: TestViews.test_ex25_category_views
+             =================================================================
+             Este archivo está vacío a propósito. Crea aquí las vistas y la
+             acción del modelo cd.clothes.category.
+             Los xml id EXACTOS que comprueba el test son:
+                 view_cd_clothes_category_list
+                 view_cd_clothes_category_form
+                 action_cd_clothes_category
+                 menu_cd_clothes_category
+             Requisitos:
+               - vista list con los campos name y color
+               - vista form con los campos name y color
+               - acción act_window res_model='cd.clothes.category' y
+                 view_mode='list,form'
+               - menuitem hijo de menu_cd_clothes_root, sequence 30.
+                 OJO: el menú va en views/menus.xml (se carga después y el
+                 menú raíz ya existe ahí), no en este archivo.
+             PLANTILLA
+               <record id="view_cd_clothes_category_list" model="ir.ui.view">
+                   <field name="name">cd.clothes.category.list</field>
+                   <field name="model">cd.clothes.category</field>
+                   <field name="arch" type="xml">
+                       <list>...</list>
+                   </field>
+               </record>
+               ...
+             ================================================================= -->
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_gym_root"
+                  name="Gimnasio"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_gym_memberships"
+                  name="Cuotas"
+                  action="action_cd_gym_membership"
+                  parent="menu_cd_gym_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_gym_bookings"
+                  name="Reservas"
+                  action="action_cd_gym_booking"
+                  parent="menu_cd_gym_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de actividades con id menu_cd_gym_activity,
+             action_cd_gym_activity y parent menu_cd_gym_root,
+             sequence 30 (las vistas y la acción van en
+             cd_gym_activity_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

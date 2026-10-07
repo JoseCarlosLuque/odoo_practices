@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             EJERCICIO 35b · Bloque 6 · Test: TestMailWizardCron.test_ex35_cron
+             =================================================================
+             Crea aquí el cron con xml id EXACTO
+             ir_cron_cd_gym_cancel_expired_bookings que llame cada día a
+             model._cron_cancel_expired_bookings().
+             PLANTILLA
+               <record id="ir_cron_cd_gym_cancel_expired_bookings" model="ir.cron">
+                   <field name="name">Gimnasio: cancelar reservas caducadas</field>
+                   <field name="model_id" ref="model_cd_gym_booking"/>
+                   <field name="state">code</field>
+                   <field name="code">model._cron_cancel_expired_bookings()</field>
+                   <field name="interval_number">1</field>
+                   <field name="interval_type">days</field>
+               </record>
+             OJO: en Odoo 19 ir.cron ya no tiene campo 'code' propio; lo hereda
+             de ir.actions.server mediante _inherits, por eso se rellenan
+             'name', 'model_id', 'state' y 'code' como en un server action.
+             ================================================================= -->
+    </data>
+</odoo>

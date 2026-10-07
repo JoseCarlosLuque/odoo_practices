@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cd_vet_visit_wizard_form" model="ir.ui.view">
+            <field name="name">cd.vet.visit.wizard.form</field>
+            <field name="model">cd.vet.visit.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Nueva visita">
+                    <group>
+                        <field name="pet_id"/>
+                        <field name="partner_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_visit"
+                                type="object"
+                                string="Crear visita"
+                                class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cd_vet_visit_wizard" model="ir.actions.act_window">
+            <field name="name">Nueva visita</field>
+            <field name="res_model">cd.vet.visit.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

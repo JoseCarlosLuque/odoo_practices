@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_library_genre,access.cd.library.genre,model_cd_library_genre,base.group_user,1,1,1,1
+access_cd_library_book,access.cd.library.book,model_cd_library_book,base.group_user,1,1,1,1
+access_cd_library_copy,access.cd.library.copy,model_cd_library_copy,base.group_user,1,1,1,1
+access_cd_library_loan,access.cd.library.loan,model_cd_library_loan,base.group_user,1,1,1,1
+access_cd_library_loan_wizard,access.cd.library.loan.wizard,model_cd_library_loan_wizard,base.group_user,1,1,1,1

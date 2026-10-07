@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- =================================================================
+             EJERCICIO 29 · Bloque 4 · Test: TestViews.test_ex29_server_action
+             =================================================================
+             Crea aquí un ir.actions.server con xml id EXACTO
+             action_server_reset_product_state que ponga en 'draft' todos los
+             registros sobre los que se ejecute.
+             PLANTILLA
+               <record id="action_server_reset_product_state" model="ir.actions.server">
+                   <field name="name">Fábrica: reiniciar estado</field>
+                   <field name="model_id" ref="model_cd_furniture_product"/>
+                   <field name="state">code</field>
+                   <field name="code">records.write({'state': 'draft'})</field>
+               </record>
+             El test ejecuta la acción con
+             action.with_context(active_model='cd.furniture.product',
+                                 active_ids=[product.id]).run()
+             ================================================================= -->
+    </data>
+</odoo>

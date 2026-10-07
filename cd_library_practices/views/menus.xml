@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_library_root"
+                  name="Biblioteca"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_library_books"
+                  name="Libros"
+                  action="action_cd_library_book"
+                  parent="menu_cd_library_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_library_loans"
+                  name="Préstamos"
+                  action="action_cd_library_loan"
+                  parent="menu_cd_library_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de géneros con id menu_cd_library_genre,
+             action_cd_library_genre y parent menu_cd_library_root,
+             sequence 30 (las vistas y la acción van en
+             cd_library_genre_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

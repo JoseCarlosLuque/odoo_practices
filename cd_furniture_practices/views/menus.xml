@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_furniture_root"
+                  name="Fábrica de muebles"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_furniture_products"
+                  name="Muebles"
+                  action="action_cd_furniture_product"
+                  parent="menu_cd_furniture_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_furniture_workorders"
+                  name="Órdenes"
+                  action="action_cd_furniture_workorder"
+                  parent="menu_cd_furniture_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de materiales con id menu_cd_furniture_material,
+             action_cd_furniture_material y parent menu_cd_furniture_root,
+             sequence 30 (las vistas y la acción van en
+             cd_furniture_material_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

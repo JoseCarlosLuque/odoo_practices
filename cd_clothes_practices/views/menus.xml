@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_clothes_root"
+                  name="Tienda de ropa"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_clothes_products"
+                  name="Prendas"
+                  action="action_cd_clothes_product"
+                  parent="menu_cd_clothes_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_clothes_orders"
+                  name="Pedidos"
+                  action="action_cd_clothes_order"
+                  parent="menu_cd_clothes_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de categorías con id menu_cd_clothes_category,
+             action_cd_clothes_category y parent menu_cd_clothes_root,
+             sequence 30 (las vistas y la acción van en
+             cd_clothes_category_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_furniture_material,access.cd.furniture.material,model_cd_furniture_material,base.group_user,1,1,1,1
+access_cd_furniture_product,access.cd.furniture.product,model_cd_furniture_product,base.group_user,1,1,1,1
+access_cd_furniture_component,access.cd.furniture.component,model_cd_furniture_component,base.group_user,1,1,1,1
+access_cd_furniture_workorder,access.cd.furniture.workorder,model_cd_furniture_workorder,base.group_user,1,1,1,1
+access_cd_furniture_workorder_wizard,access.cd.furniture.workorder.wizard,model_cd_furniture_workorder_wizard,base.group_user,1,1,1,1

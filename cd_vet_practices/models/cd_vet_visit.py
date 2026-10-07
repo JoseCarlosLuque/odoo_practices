@@ -1,0 +1,57 @@
+from odoo import api, fields, models
+
+
+class CdVetVisit(models.Model):
+    """Visita de una mascota. Se usa en los bloques 5 (seguridad) y 6 (mail/cron)."""
+
+    _name = 'cd.vet.visit'
+    _description = 'Visita veterinaria'
+
+    name = fields.Char(string='Referencia', required=True, default='Visita')
+    pet_id = fields.Many2one(
+        'cd.vet.pet',
+        string='Mascota',
+        required=True,
+        ondelete='cascade',
+    )
+    partner_id = fields.Many2one('res.partner', string='Dueño', required=True)
+    date_start = fields.Date(string='Fecha de inicio')
+    date_end = fields.Date(string='Fecha de fin')
+    state = fields.Selection(
+        [
+            ('draft', 'Borrador'),
+            ('scheduled', 'Programada'),
+            ('done', 'Realizada'),
+            ('cancelled', 'Cancelada'),
+        ],
+        string='Estado',
+        default='draft',
+        required=True,
+    )
+    note = fields.Text(string='Notas')
+
+    # =========================================================================
+    # EJERCICIO 33 · Bloque 6 · Test: TestMailWizardCron.test_ex33_mail_thread
+    # -------------------------------------------------------------------------
+    # Convierte este modelo en un hilo de mensajes:
+    #   1) Añade _inherit = ['mail.thread', 'mail.activity.mixin'] a la clase.
+    #   2) Añade tracking=True al campo state.
+    #   3) En views/cd_vet_visit_views.xml descomenta <chatter/>.
+    # El test comprueba que existe message_post y que al cambiar el estado se
+    # genera un mensaje con tracking_value_ids.
+    # =========================================================================
+
+    # =========================================================================
+    # EJERCICIO 35 · Bloque 6 · Test: TestMailWizardCron.test_ex35_cron
+    # -------------------------------------------------------------------------
+    # a) Implementa _cron_cancel_expired_visits(): busca las visitas en
+    #    estado 'scheduled' cuya date_end sea ANTERIOR a hoy y pásalas a
+    #    'cancelled' con una sola escritura.
+    #    PISTA: self.search([('state', '=', 'scheduled'),
+    #                        ('date_end', '<', fields.Date.today())])
+    # b) Crea el XML del cron en data/cd_vet_cron.xml (hay instrucciones
+    #    dentro de ese archivo).
+    # =========================================================================
+    @api.model
+    def _cron_cancel_expired_visits(self):
+        raise NotImplementedError('EJERCICIO 35 pendiente: search + write y el XML del cron')

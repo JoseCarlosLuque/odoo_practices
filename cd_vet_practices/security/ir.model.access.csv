@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_vet_tag,access.cd.vet.tag,model_cd_vet_tag,base.group_user,1,1,1,1
+access_cd_vet_pet,access.cd.vet.pet,model_cd_vet_pet,base.group_user,1,1,1,1
+access_cd_vet_treatment,access.cd.vet.treatment,model_cd_vet_treatment,base.group_user,1,1,1,1
+access_cd_vet_visit,access.cd.vet.visit,model_cd_vet_visit,base.group_user,1,1,1,1
+access_cd_vet_visit_wizard,access.cd.vet.visit.wizard,model_cd_vet_visit_wizard,base.group_user,1,1,1,1

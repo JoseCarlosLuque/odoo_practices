@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vistas del modelo cd.vet.pet. Vienen funcionando; el
+             EJERCICIO 28 te pide añadir un botón en el header. -->
+        <record id="view_cd_vet_pet_list" model="ir.ui.view">
+            <field name="name">cd.vet.pet.list</field>
+            <field name="model">cd.vet.pet</field>
+            <field name="arch" type="xml">
+                <list string="Mascotas">
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="tag_ids" widget="many2many_tags"/>
+                    <field name="price"/>
+                    <field name="quantity"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_cd_vet_pet_form" model="ir.ui.view">
+            <field name="name">cd.vet.pet.form</field>
+            <field name="model">cd.vet.pet</field>
+            <field name="arch" type="xml">
+                <form string="Mascota">
+                    <header>
+                        <!-- =================================================
+                             EJERCICIO 28b · Bloque 4
+                             Añade aquí un botón que llame al método
+                             action_mark_active y que solo se vea cuando el
+                             estado sea 'draft'. Ejemplo de sintaxis:
+
+                             <button name="action_mark_active"
+                                     type="object"
+                                     string="Marcar activa"
+                                     invisible="state != 'draft'"/>
+                             ================================================= -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,active,in_treatment"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_visit_wizard"
+                                    type="object"
+                                    string="Visitar"
+                                    class="oe_stat_button"
+                                    icon="fa-stethoscope"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="owner_id"/>
+                                <field name="tag_ids" widget="many2many_tags"/>
+                                <field name="birth_date"/>
+                            </group>
+                            <group>
+                                <field name="price"/>
+                                <field name="quantity"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Descripción" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Tratamientos" name="treatments">
+                                <field name="treatment_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="quantity"/>
+                                        <field name="price_unit"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Visitas" name="visits">
+                                <field name="visit_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="state"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cd_vet_pet_search" model="ir.ui.view">
+            <field name="name">cd.vet.pet.search</field>
+            <field name="model">cd.vet.pet</field>
+            <field name="arch" type="xml">
+                <search string="Buscar mascotas">
+                    <field name="name"/>
+                    <field name="owner_id"/>
+                    <field name="tag_ids"/>
+                    <filter name="filter_draft" string="Borradores" domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_active" string="Activas" domain="[('state', '=', 'active')]"/>
+                    <group>
+                        <filter name="group_state" string="Estado" context="{'group_by': 'state'}"/>
+                        <filter name="group_owner" string="Dueño" context="{'group_by': 'owner_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cd_vet_pet" model="ir.actions.act_window">
+            <field name="name">Mascotas</field>
+            <field name="res_model">cd.vet.pet</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_cd_vet_pet_search"/>
+        </record>
+    </data>
+</odoo>

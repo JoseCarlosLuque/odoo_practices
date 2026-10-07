@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_vet_root"
+                  name="Veterinaria"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_vet_pets"
+                  name="Mascotas"
+                  action="action_cd_vet_pet"
+                  parent="menu_cd_vet_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_vet_visits"
+                  name="Visitas"
+                  action="action_cd_vet_visit"
+                  parent="menu_cd_vet_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de etiquetas con id menu_cd_vet_tag,
+             action_cd_vet_tag y parent menu_cd_vet_root,
+             sequence 30 (las vistas y la acción van en
+             cd_vet_tag_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

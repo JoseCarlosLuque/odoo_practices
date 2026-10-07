@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_clothes_category,access.cd.clothes.category,model_cd_clothes_category,base.group_user,1,1,1,1
+access_cd_clothes_product,access.cd.clothes.product,model_cd_clothes_product,base.group_user,1,1,1,1
+access_cd_clothes_variant,access.cd.clothes.variant,model_cd_clothes_variant,base.group_user,1,1,1,1
+access_cd_clothes_order,access.cd.clothes.order,model_cd_clothes_order,base.group_user,1,1,1,1
+access_cd_clothes_order_wizard,access.cd.clothes.order.wizard,model_cd_clothes_order_wizard,base.group_user,1,1,1,1

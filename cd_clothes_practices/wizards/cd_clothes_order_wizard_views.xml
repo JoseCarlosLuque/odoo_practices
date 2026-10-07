@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cd_clothes_order_wizard_form" model="ir.ui.view">
+            <field name="name">cd.clothes.order.wizard.form</field>
+            <field name="model">cd.clothes.order.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Nuevo pedido">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="partner_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_order"
+                                type="object"
+                                string="Crear pedido"
+                                class="btn-primary"/>
+                        <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_cd_clothes_order_wizard" model="ir.actions.act_window">
+            <field name="name">Nuevo pedido</field>
+            <field name="res_model">cd.clothes.order.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>
