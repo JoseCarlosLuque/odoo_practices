@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú raíz del módulo -->
+        <menuitem id="menu_cd_restaurant_root"
+                  name="Restaurante"
+                  sequence="90"/>
+
+        <menuitem id="menu_cd_restaurant_dishes"
+                  name="Platos"
+                  action="action_cd_restaurant_dish"
+                  parent="menu_cd_restaurant_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_cd_restaurant_orders"
+                  name="Pedidos"
+                  action="action_cd_restaurant_order"
+                  parent="menu_cd_restaurant_root"
+                  sequence="20"/>
+
+        <!-- =============================================================
+             EJERCICIO 25 · Bloque 4
+             Añade aquí el menú de alérgenos con id menu_cd_restaurant_allergen,
+             action_cd_restaurant_allergen y parent menu_cd_restaurant_root,
+             sequence 30 (las vistas y la acción van en
+             cd_restaurant_allergen_views.xml).
+             ============================================================= -->
+    </data>
+</odoo>

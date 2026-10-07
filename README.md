@@ -12,6 +12,8 @@ para validar tus soluciones.
 | [`cd_vet_practices`](cd_vet_practices/README.md) | Clínica veterinaria | `cd_vet_practice` | `cd.vet.pet` |
 | [`cd_gym_practices`](cd_gym_practices/README.md) | Gimnasio | `cd_gym_practice` | `cd.gym.membership` |
 | [`cd_clothes_practices`](cd_clothes_practices/README.md) | Tienda de ropa | `cd_clothes_practice` | `cd.clothes.product` |
+| [`cd_furniture_practices`](cd_furniture_practices/README.md) | Fábrica de muebles | `cd_furniture_practice` | `cd.furniture.product` |
+| [`cd_restaurant_practices`](cd_restaurant_practices/README.md) | Restaurante | `cd_restaurant_practice` | `cd.restaurant.dish` |
 
 Todos parten del mismo temario, así que puedes hacerlos en cualquier orden:
 cada uno refuerza los mismos conceptos sobre un dominio distinto.
@@ -73,6 +75,12 @@ odoo -d MI_BD -u cd_gym_practices --stop-after-init --test-enable --test-tags=cd
 
 # Tienda de ropa
 odoo -d MI_BD -u cd_clothes_practices --stop-after-init --test-enable --test-tags=cd_clothes_practice
+
+# Fábrica de muebles
+odoo -d MI_BD -u cd_furniture_practices --stop-after-init --test-enable --test-tags=cd_furniture_practice
+
+# Restaurante
+odoo -d MI_BD -u cd_restaurant_practices --stop-after-init --test-enable --test-tags=cd_restaurant_practice
 
 # Genérico
 odoo -d MI_BD -u cd_practices --stop-after-init --test-enable --test-tags=cd_practice

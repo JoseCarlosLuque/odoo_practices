@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="demo_partner_ana" model="res.partner">
+            <field name="name">Ana Restaurante</field>
+            <field name="email">ana.restaurante@example.com</field>
+        </record>
+
+        <record id="demo_partner_bruno" model="res.partner">
+            <field name="name">Bruno Restaurante</field>
+            <field name="email">bruno.restaurante@example.com</field>
+        </record>
+
+        <record id="demo_allergen_gluten" model="cd.restaurant.allergen">
+            <field name="name">Gluten</field>
+            <field name="color">1</field>
+        </record>
+
+        <record id="demo_allergen_lactosa" model="cd.restaurant.allergen">
+            <field name="name">Lactosa</field>
+            <field name="color">4</field>
+        </record>
+
+        <record id="demo_dish_ensalada" model="cd.restaurant.dish">
+            <field name="name">Ensalada de la casa</field>
+            <field name="description">Un plato ideal para practicar dominios y recordsets.</field>
+            <field name="chef_id" ref="demo_partner_ana"/>
+            <field name="allergen_ids" eval="[(6, 0, [ref('demo_allergen_gluten')])]"/>
+            <field name="price">25.0</field>
+            <field name="quantity">2</field>
+            <field name="state">available</field>
+        </record>
+
+        <record id="demo_dish_tarta" model="cd.restaurant.dish">
+            <field name="name">Tarta de queso</field>
+            <field name="description">Ideal para escribir muchos search().</field>
+            <field name="chef_id" ref="demo_partner_bruno"/>
+            <field name="allergen_ids" eval="[(6, 0, [ref('demo_allergen_lactosa')])]"/>
+            <field name="price">80.0</field>
+            <field name="quantity">1</field>
+            <field name="state">on_menu</field>
+        </record>
+
+        <record id="demo_dish_paella" model="cd.restaurant.dish">
+            <field name="name">Paella</field>
+            <field name="chef_id" ref="demo_partner_ana"/>
+            <field name="price">150.0</field>
+            <field name="quantity">3</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="demo_ingredient_ensalada" model="cd.restaurant.ingredient">
+            <field name="name">Tomate</field>
+            <field name="dish_id" ref="demo_dish_ensalada"/>
+            <field name="quantity">1</field>
+            <field name="price_unit">2.0</field>
+        </record>
+
+        <record id="demo_order_ana" model="cd.restaurant.order">
+            <field name="name">Pedido de Ana</field>
+            <field name="dish_id" ref="demo_dish_ensalada"/>
+            <field name="partner_id" ref="demo_partner_ana"/>
+            <field name="date_start" eval="datetime.today().date()"/>
+            <field name="date_end" eval="datetime.today().date() + timedelta(days=7)"/>
+            <field name="state">ongoing</field>
+        </record>
+
+        <record id="demo_order_bruno" model="cd.restaurant.order">
+            <field name="name">Pedido de Bruno</field>
+            <field name="dish_id" ref="demo_dish_tarta"/>
+            <field name="partner_id" ref="demo_partner_bruno"/>
+            <field name="date_start" eval="datetime.today().date() - timedelta(days=10)"/>
+            <field name="date_end" eval="datetime.today().date() - timedelta(days=3)"/>
+            <field name="state">served</field>
+        </record>
+    </data>
+</odoo>

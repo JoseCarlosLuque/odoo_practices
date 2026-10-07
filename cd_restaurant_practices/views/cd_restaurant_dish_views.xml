@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vistas del modelo cd.restaurant.dish. Vienen funcionando; el
+             EJERCICIO 28 te pide añadir un botón en el header. -->
+        <record id="view_cd_restaurant_dish_list" model="ir.ui.view">
+            <field name="name">cd.restaurant.dish.list</field>
+            <field name="model">cd.restaurant.dish</field>
+            <field name="arch" type="xml">
+                <list string="Platos">
+                    <field name="name"/>
+                    <field name="chef_id"/>
+                    <field name="allergen_ids" widget="many2many_tags"/>
+                    <field name="price"/>
+                    <field name="quantity"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_cd_restaurant_dish_form" model="ir.ui.view">
+            <field name="name">cd.restaurant.dish.form</field>
+            <field name="model">cd.restaurant.dish</field>
+            <field name="arch" type="xml">
+                <form string="Plato">
+                    <header>
+                        <!-- =================================================
+                             EJERCICIO 28b · Bloque 4
+                             Añade aquí un botón que llame al método
+                             action_mark_available y que solo se vea cuando el
+                             estado sea 'draft'. Ejemplo de sintaxis:
+
+                             <button name="action_mark_available"
+                                     type="object"
+                                     string="Marcar disponible"
+                                     invisible="state != 'draft'"/>
+                             ================================================= -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,available,on_menu"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_open_order_wizard"
+                                    type="object"
+                                    string="Pedir"
+                                    class="oe_stat_button"
+                                    icon="fa-cutlery"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="chef_id"/>
+                                <field name="allergen_ids" widget="many2many_tags"/>
+                                <field name="menu_date"/>
+                            </group>
+                            <group>
+                                <field name="price"/>
+                                <field name="quantity"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Descripción" name="description">
+                                <field name="description"/>
+                            </page>
+                            <page string="Ingredientes" name="ingredients">
+                                <field name="ingredient_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="quantity"/>
+                                        <field name="price_unit"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Pedidos" name="orders">
+                                <field name="order_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="state"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cd_restaurant_dish_search" model="ir.ui.view">
+            <field name="name">cd.restaurant.dish.search</field>
+            <field name="model">cd.restaurant.dish</field>
+            <field name="arch" type="xml">
+                <search string="Buscar platos">
+                    <field name="name"/>
+                    <field name="chef_id"/>
+                    <field name="allergen_ids"/>
+                    <filter name="filter_draft" string="Borradores" domain="[('state', '=', 'draft')]"/>
+                    <filter name="filter_available" string="Disponibles" domain="[('state', '=', 'available')]"/>
+                    <group>
+                        <filter name="group_state" string="Estado" context="{'group_by': 'state'}"/>
+                        <filter name="group_chef" string="Chef" context="{'group_by': 'chef_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_cd_restaurant_dish" model="ir.actions.act_window">
+            <field name="name">Platos</field>
+            <field name="res_model">cd.restaurant.dish</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_cd_restaurant_dish_search"/>
+        </record>
+    </data>
+</odoo>

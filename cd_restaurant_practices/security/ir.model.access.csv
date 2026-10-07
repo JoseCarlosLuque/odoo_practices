@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cd_restaurant_allergen,access.cd.restaurant.allergen,model_cd_restaurant_allergen,base.group_user,1,1,1,1
+access_cd_restaurant_dish,access.cd.restaurant.dish,model_cd_restaurant_dish,base.group_user,1,1,1,1
+access_cd_restaurant_ingredient,access.cd.restaurant.ingredient,model_cd_restaurant_ingredient,base.group_user,1,1,1,1
+access_cd_restaurant_order,access.cd.restaurant.order,model_cd_restaurant_order,base.group_user,1,1,1,1
+access_cd_restaurant_order_wizard,access.cd.restaurant.order.wizard,model_cd_restaurant_order_wizard,base.group_user,1,1,1,1
