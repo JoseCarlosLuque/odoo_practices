@@ -1,0 +1,64 @@
+# Sistema operativo
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs y editores
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+.vs/
+.fleet/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.project
+.classpath
+.settings/
+.metadata/
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Python y herramientas de calidad
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+*.egg-info/
+build/
+dist/
+
+# Dependencias y logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+*.pid
+*.seed
+*.sock
+
+# Dependencias locales para desarrollo de plugins de OpenCode
+.opencode/package.json
+.opencode/package-lock.json
+.opencode/bun.lock

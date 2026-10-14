@@ -108,3 +108,15 @@ Mientras no resuelvas un ejercicio, sus tests fallarán con el mensaje
 - En las vistas, `attrs` y `states` ya no existen: se usan expresiones Python en
   `invisible`, `readonly`, `required`.
 - Documentación oficial: https://www.odoo.com/documentation/19.0/developer/reference/backend/orm.html
+
+## Skill del profesor para agentes
+
+La skill **profesor-practicas-odoo** guía a los agentes para ayudar con los
+ejercicios sin resolverlos por el alumno. Está disponible para:
+
+- OpenCode: `.opencode/skills/profesor-practicas-odoo/SKILL.md`
+- Claude Code: `.claude/skills/profesor-practicas-odoo/SKILL.md`
+- Codex y agentes compatibles: `.agents/skills/profesor-practicas-odoo/SKILL.md`
+
+Las tres rutas contienen el mismo `SKILL.md` en formato Agent Skills. Si editas
+la skill, actualiza las tres copias para mantener la compatibilidad.
